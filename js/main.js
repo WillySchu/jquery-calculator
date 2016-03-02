@@ -2,6 +2,10 @@ $(document).ready(function() {
 
   $("span").click(function() {
     var $text = $("#screen").text();
+    console.log(!$.isNumeric($text[$text.length - 1]));
+    if($(this).hasClass("operator") && !$.isNumeric($text[$text.length - 1])){
+      $text = $text.slice(0, -1);
+    }
 
     if ($(this).text() === "x") {
       $text += "*";
